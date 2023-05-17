@@ -1,0 +1,923 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    vertical-align: bottom;
+}
+
+body {
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+    min-width: 1226px;
+    /* 设置body的最小宽度，保证其子元素在屏幕缩小时不会溢出 */
+    /* height: 8000px; */
+    background-color: #f5f5f5;
+}
+
+.w {
+    width: 1226px;
+    /* 固定容器的宽度 */
+    margin: 0 auto;
+    /* 设置居中 */
+}
+
+/* 设置一个类，用来表示中间容器的宽度 */
+.top-box {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background-color: #333;
+}
+
+.top-box a {
+    font-size: 12px;
+    color: #B0B0B0;
+    display: block;
+}
+
+.top-left-ul {
+    float: left;
+}
+
+.top-left-ul li,
+.top-right-ul li {
+    float: left;
+}
+
+.top-box a:hover {
+    color: #fff;
+}
+
+.top-right-ul {
+    float: right;
+}
+
+.shopcar a {
+    background-color: #424242;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-left: 25px;
+}
+
+.shopcar:hover a {
+    background-color: #fff;
+    color: #ff6a00;
+}
+
+.line {
+    font-size: 12px;
+    color: #424242;
+    margin: 0 8px;
+}
+
+.app {
+    position: relative;
+}
+
+.erweima {
+    background-color: #fff;
+    position: absolute;
+    width: 124px;
+    height: 0px;
+    overflow: hidden;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    left: -36px;
+    display: block;
+    transition: height 0.3s;
+    z-index: 999;
+    /* 
+    
+        添加过渡效果
+            当高度改变时，过渡时间为0.3s
+    */
+}
+
+.erweima span {
+    color: rgb(21, 21, 21);
+    font-size: 14px;
+
+}
+
+.erweima img {
+    width: 90px;
+    margin: 17px;
+    margin-bottom: 14px;
+}
+
+.app::after {
+    content: '';
+    display: none;
+    width: 0;
+    height: 0;
+    border: 8px solid white;
+    border-color: transparent transparent white transparent;
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.app:hover::after {
+    display: block;
+}
+
+.app:hover .erweima {
+    height: 148px;
+}
+
+.shopcar {
+    position: relative;
+}
+
+.shopcar a {
+    /* height: 41px; */
+    position: relative;
+    z-index: 9999;
+}
+
+.in-shopcar {
+    width: 395px;
+    /* height: 125px; */
+    height: 0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    position: absolute;
+    right: 0;
+    text-align: center;
+    line-height: 126px;
+    font-size: 12px;
+    z-index: 998;
+    transition: height 0.3s;
+}
+
+.shopcar:hover .in-shopcar {
+    height: 125px;
+}
+
+.header-daohangtiao {
+    min-width: 1226px;
+    position: relative;
+}
+
+.headerdaohangtiao {
+    height: 100px;
+    /* position: relative; */
+}
+
+.mi {
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-image: url(../img/logo-mi2.png);
+    background-size: 55px;
+    margin-top: 22.5px;
+    float: left;
+}
+
+.menu {
+    float: left;
+    /* width: 850px; */
+    height: 100px;
+    /* background-color: #bfa; */
+    line-height: 100px;
+    margin-left: 7px;
+    padding-left: 58px;
+}
+
+.menu>li {
+    float: left;
+}
+
+.menu>li>a {
+    font-size: 16px;
+    margin-right: 20px;
+    color: #333;
+}
+
+.all-goods {
+    visibility: hidden;
+    position: relative;
+    /* 规定元素是否可见 */
+}
+
+.menu li a:hover {
+    color: #ff6700;
+}
+
+.goods-info {
+    height: 0px;
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    text-align: center;
+    line-height: 228px;
+    left: 0;
+    top: 100px;
+    box-shadow: 0 5px 5px rgba(25, 24, 24, 0.2);
+    transition: height 0.5s;
+    z-index: 99;
+}
+
+.menu li.show-goods:hover~.goods-info,
+.goods-info:hover {
+    height: 228px;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+form {
+    height: 100px;
+    float: right;
+    /* outline: none; */
+}
+
+form:hover .search {
+    border: 1px solid rgb(176, 176, 176);
+    border-right: none;
+}
+
+form:hover .submit {
+    border: 1px solid rgb(176, 176, 176);
+}
+
+input,
+button {
+    height: 50px;
+    width: 296px;
+    margin: 25px 0;
+    float: left;
+    border: 1px solid rgba(224, 224, 224, 1);
+    transition: border-color 0.3s;
+}
+
+.search {
+    width: 244px;
+    padding-left: 10px;
+    border-right: none;
+}
+
+.submit {
+    width: 52px;
+    color: #616161;
+    margin: 25px 0;
+    background-color: #fff;
+    transition: background-color 0.2s;
+}
+
+
+form .search:focus {
+    outline: none;
+    border: 1px solid #ff6700;
+    border-right: none;
+}
+
+form .search:focus+button {
+    outline: none;
+    border: 1px solid #ff6700;
+}
+
+/* 当点击搜索框的时候，让搜索框的颜色改变 */
+
+
+
+.submit:hover {
+    color: #fff;
+    background-color: rgb(255, 103, 0);
+    border: none;
+}
+
+
+.navigation {
+    width: 234px;
+    height: 420px;
+    padding: 20px 0;
+    position: absolute;
+    left: -120px;
+    z-index: 98;
+    background-color: #bfa;
+    visibility: visible;
+    background-color: rgba(105, 101, 101, 0.6);
+}
+
+.line-show>li>a {
+    display: block;
+    height: 42px;
+    padding: 0 26px 0 30px;
+    line-height: 42px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.line-show>li>a:hover {
+    background-color: #ff6a00;
+    color: #fff;
+}
+
+.line-show span {
+    float: right;
+}
+
+.middle {
+    height: 460px;
+    background-color: #bfa;
+    position: relative;
+}
+
+.img-list img {
+    position: absolute;
+}
+
+.left-button a,
+.right-button a {
+    width: 41px;
+    height: 69px;
+    color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    font-size: 20px;
+    line-height: 69px;
+    text-align: center;
+    top: 195.5px;
+}
+
+.left-button a {
+    left: 234px;
+    border-radius: 0 2px 2px 0;
+}
+
+.right-button a {
+    right: 0;
+    border-radius: 2px 0 0 2px;
+}
+
+.left-button a:hover,
+.right-button a:hover {
+    background-color: rgba(0, 0, 0, .3);
+    color: #fff;
+}
+
+.option {
+    position: absolute;
+    height: 21px;
+    right: 30px;
+    bottom: 10px;
+}
+
+.option li {
+    float: left;
+}
+
+.option a {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    margin-left: 10px;
+    background-clip: border-box;
+}
+
+.option a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    background-clip: padding-box;
+}
+
+.home-tool{
+    width: 26px;
+    height: 200px;
+    /* background-color: #bfa; */
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    margin-right: -639px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3) ;
+}
+
+.home-tool ul li{
+    width: 26px;
+    height: 38.6px;
+    border: red 1px #f5f5f5;
+    line-height: 38.6px;
+    text-align: center;
+}
+.home-tool ul li i{
+    font-size: 20px;
+    color: #757575;
+}
+
+
+.ads{
+    height: 170px;
+    margin-top: 14px;
+}
+
+.ads li{
+    float: left;
+}
+
+.left-ads{
+    float: left;
+    height: 168px;
+    width: 228px;
+    background-color: #5f5750;
+    margin-right: 14px;
+    padding-top: 2px;
+    padding-left: 6px;
+}
+
+.left-ads li{
+    height: 84px;
+    width: 70px;
+    text-align: center;
+    padding: 0 3px;
+    /* border: 1px solid rgba(255, 255, 255, .3); */
+    border-bottom: none;
+    position: relative;
+}
+.left-ads li a{
+    color: #cfccca;
+    display: block;
+    text-align: center;
+    transition: color 0.2s;
+}
+
+.left-ads li::before{
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    background-color: #665e57 ;
+    /* background-color: red; */
+    left: 0;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+.left-ads li::after{
+    content: '';
+    width: 1px;
+    height: 70px;
+    background-color: #665e57;
+    position: absolute;
+    left: 0;
+    top: 8px;
+}
+
+.left-ads li a:hover{
+    color: #fff;
+}
+
+.left-ads i{
+    margin-top: 20px;
+    display: block;
+}
+
+
+.ads-img li a img{
+    width: 316px;
+    height: 170px;
+    transition: box-shadow 0.2s;
+    vertical-align: top;
+}
+.ads-img .middle-img{
+    margin: 0 15px;
+}
+.ads-img li a img:hover{
+    box-shadow: 0 0 14px rgba(0, 0, 0, .1);
+}
+
+.big-box{
+    padding-bottom: 35px;
+    background-color: #fff;
+}
+
+.middle-banner-box{
+    margin-top: 35px;
+}
+
+.box-hd{
+    height: 58px;
+    position: relative;
+}
+
+.box-hd h2{
+    position: absolute;
+    bottom: 10px;
+    font-size: 22px;
+    font-weight: 200;
+}
+
+.box-hd a.look-more{
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    color: #424242;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.box-hd a.look-more:hover,
+.box-hd a.look-more:hover i{
+    color: #ff6700;
+}
+
+.box-hd a i{
+    font-size: 18px;
+    color: rgba(66, 66, 66, .5);
+    transition: color 0.3s;
+}
+
+.phone{
+    height: 614px;
+    width: 1226px;
+}
+
+.left-phone{
+    float: left;
+    height: 614px;
+    width: 234px;
+}
+
+.left-phone img{
+    height: 614px;
+    width: 234px;
+    position: relative;
+    box-shadow: none;
+    top: 0;
+    transition: top 0.15s,box-shadow 0.15s;
+}
+
+.right-phone{
+    float: right;
+    width: 992px;
+    height: 614px;
+}
+
+.right-phone li{
+    float: left;
+    width: 234px;
+    height: 300px;
+    margin: 0 0 14px 14px;
+    background-color: #fff; 
+    position: relative;
+    box-shadow: none;
+    top: 0;
+    transition: top 0.15s,box-shadow 0.15s;
+}
+
+.right-phone li:hover,
+.left-phone img:hover{
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+
+.right-phone img{
+    width: 160px;
+    height: 160px;
+    display: block;
+    margin: 10px auto;
+}
+
+.right-phone h3{
+    width: 214px;
+    height: 21px;
+    line-height: 21px;
+    margin: 10px auto 5px;
+    text-align: center;
+    color: #333;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.descripe{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 这三行将文字强制一格且省略文字溢出部分 */
+    text-align: center;
+    line-height: 18px;
+    width: 214px;
+    height: 18px;
+    margin: 0 10px 10px 10px;
+    font-size: 12px;
+    color: #B0B0B0;
+}
+
+.price{
+    text-align: center;
+    line-height: 21px;
+    color: #ff6700;
+}
+
+.decline{
+    text-decoration: line-through;
+    color: #B0B0B0;
+}
+
+.actived{
+    height: 58px;
+}
+
+.active{
+    float: right;
+    display: block;
+    /* position: absolute; */
+    right: 0;
+    bottom: 10px;
+    color: #424242;
+    font-size: 16px;
+    transition: color 0.3s;
+    height: 28px;
+    margin: 15px 0 15px 25px;
+    font-size: 16px;
+    border-bottom: 2px solid #ff6700;
+}
+
+.wow{
+    float: left;
+    margin-left: 14px;
+    margin-bottom: 14px;
+    width: 234px;
+    height: 300px;
+}
+
+
+
+.two-box1 a,
+.two-box2 a{
+    position: relative;
+    display: block;
+    padding-top: 50px;
+    width: 234px;
+    height: 93px;
+    background-color: #fff;
+    top: 0;
+    transition: top 0.15s,box-shadow 0.15s;
+}
+.two-box1 a{
+    margin-bottom: 14px;
+}
+
+.two-box1 img{
+    margin: 0;
+    position: absolute;
+    top: 30px ;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+}
+
+.two-box1 h3{
+    width: 100px;
+    text-align: left;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.two-box1 p{
+    position: absolute;
+    top: 110px;
+    left: 20px;
+}
+
+.wow a:hover{
+    top: -2px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+
+.two-box2 i{
+    display: block;
+    position: absolute;
+    top: 35px;
+    right: 35px;
+    font-size: 48px;
+    color: #ff6700;
+}
+
+.two-box2 h3{
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    width: 80px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.two-box2 p{
+    position: absolute;
+    top: 74px;
+    left: 34px;
+    color: #757575;
+    font-size: 12px;
+}
+
+.jiadian{
+    float: left;
+    height: 614px;
+    width: 234px;
+}
+.jiadian img{
+    height: 300px;
+    width: 234px;
+    position: relative;
+    box-shadow: none;
+    top: 2px;
+    transition: top 0.15s,box-shadow 0.15s;
+}
+
+.jiadian img:first-child{
+    margin-bottom: 14px;
+}
+
+.jiadian img:hover{
+    top: 0px;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
+}
+
+.junengxie{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.bottom{
+    height: 520px;
+    background-color: #fff;
+}
+.bottom-top-bar{
+    border-bottom: 1px solid #e0e0e0;
+    height: 85px;
+}
+
+.bottom-top-bar li{
+    float: left;
+    line-height: 25px;
+    width: 244.4px;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.bottom-top-bar li a{
+    color: #616161;
+    font-size: 16px;
+    transition: color 0.15s;
+}
+
+.bottom-top-bar li a:hover{
+    color: #ff6700;
+}
+
+.bottom-top-bar li i{
+    font-size: 26px;
+    vertical-align: middle;
+}
+
+.bottom-top-bar li:not(:first-child){
+    border-left: 1px solid #e0e0e0;
+}
+
+.bottom-middle-bar{
+    padding: 40p 0x;
+}
+
+.left-bottom-middle-bar{
+    margin-left: 160px;
+    margin-top: 40px;
+}
+
+.left-bottom-middle-bar a{
+    font-size: 12px;
+    color: #757575;
+}
+
+.left-bottom-middle-bar a:hover{
+    color: #ff6700;
+}
+
+.left-bottom-middle-bar>ul>li{
+    float: left;
+    width: 160px;
+}
+.left-bottom-middle-bar>ul>li>ul>li:first-child{
+    margin-bottom: 26px;
+}
+
+.left-bottom-middle-bar>ul>li>ul>li:not(:first-child){
+    margin-top: 10px;
+}
+
+.right-bottom-middle-bar{
+    /* background-color: #bfa; */
+    float: right;
+    width: 245.2px;
+    height: 80px;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}
+
+.right-bottom-middle-bar h2{
+    color: #ff6700;
+    font-weight: 100;
+}
+
+.right-bottom-middle-bar button{
+    width: 120px;
+    height: 30px;
+    margin: 2px 62.6px;
+    font-size: 12px;
+    /* outline: 1px solid #ff6700; */
+    border: 1px solid #ff6700;
+    background-color: #fff;
+    color: #ff6700;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.right-bottom-middle-bar button:hover{
+    color: white;
+    background-color: #ff6700;
+}
+
+.right-bottom-middle-bar p{
+    font-size: 12px;
+}
+
+
+.right-bottom-middle-bar h2,
+.right-bottom-middle-bar p{
+    text-align: center;
+}
+
+.close{
+    margin-top: 35px;
+    height: 200px;
+}
+
+.mi-logo{
+    float: left;
+}
+
+.mi-logo>img{
+    width: 56px;
+    height: 56px;
+    margin-right: 20px;
+}
+
+.close ul{
+    float: left;
+}
+
+.close ul li{
+    line-height: 19px;
+}
+
+.close ul li a,
+.close ul li span{
+    font-size: 12px;
+    color: #B0B0B0;
+}
+
+.close ul li a:hover{
+    color: #ff6700;
+}
+
+.color1 a,
+.color1 span{
+    color: #757575 !important;
+}
+
+.close a img{
+    height: 28px;
+    width: 85px;
+}
+
+.close ul li:last-child{
+    margin-top: 5px;
+}
+
+.close-tongue{
+    margin-bottom: 30px;
+    min-width: 1226px;
+    height: 19px;
+}
+.close-tongue img{
+    display: block;
+    margin: 0 auto;
+}
