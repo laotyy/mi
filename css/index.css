@@ -386,7 +386,13 @@ form .search:focus+button {
     background-clip: border-box;
 }
 
-.option a:hover {
+/* .option a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-color: rgba(0, 0, 0, 0.4);
+    background-clip: padding-box;
+} */
+
+.select{
     background-color: rgba(255, 255, 255, 0.4);
     border-color: rgba(0, 0, 0, 0.4);
     background-clip: padding-box;
